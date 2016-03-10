@@ -5,4 +5,4 @@ categories: jekyll update
 ---
 
 # Hello World!
-![HTML](/images/html.jpg "HTML")
+![HTML]({{ site.url }}/images/html.jpg "HTML")

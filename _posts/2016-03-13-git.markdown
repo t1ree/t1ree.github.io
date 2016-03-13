@@ -1,0 +1,244 @@
+---
+layout: post
+title:  "Git基础"
+categories: jekyll update
+---
+
+#版本控制？
+
+---
+##发展历史
+
+###本地版本控制系统
+![本地版本控制系统](http://img.blog.csdn.net/20151121140438165)
+
+---------------
+###集中化的版本控制系统（CVCS）
+![CVCS](http://img.blog.csdn.net/20151121140637846)
+
+----
+###分布式版本控制系统（DVCS）
+![DVCS](http://img.blog.csdn.net/20151121140806253)
+
+#Git简史
+
+> 同生活中的许多伟大事件一样，Git 诞生于一个极富纷争大举创新的年代。Linux 内核开源项目有着为数众广的参与者。绝大多数的 Linux
+> 内核维护工作都花在了提交补丁和保存归档的繁琐事务上（1991－2002年间）。到 2002 年，整个项目组开始启用分布式版本控制系统
+> BitKeeper 来管理和维护代码。
+> 
+> 到了 2005 年，开发 BitKeeper 的商业公司同 Linux 内核开源社区的合作关系结束，他们收回了免费使用 BitKeeper
+> 的权力。这就迫使 Linux 开源社区（特别是 Linux 的缔造者 Linus Torvalds
+> ）不得不吸取教训，只有开发一套属于自己的版本控制系统才不至于重蹈覆辙。他们对新的系统制订了若干目标：
+> 
+> + 速度
+> + 简单的设计
+> + 对非线性开发模式的强力支持（允许上千个并行开发的分支）
+> + 完全分布式
+> + 有能力高效管理类似 Linux 内核一样的超大规模项目（速度和数据量）
+> 
+> 自诞生于 2005 年以来，Git
+> 日臻成熟完善，在高度易用的同时，仍然保留着初期设定的目标。它的速度飞快，极其适合管理大项目，它还有着令人难以置信的非线性分支管理系统（见第三章），可以应付各种复杂的项目开发需求。
+
+参考自《Pro Git》
+
+----
+Git使用SHA-1算法计算数据的校验和，通过对文件的内容或目录的结构计算出一个SHA-1哈希值，作为指纹字符串。
+
+![指纹字符串](http://img.blog.csdn.net/20151121142010432)
+
+----
+Git中文件有三种状态：
+
++ 已提交(committed)
++ 已修改(modified)
++ 已暂存(staged)
+
+![local operations](http://img.blog.csdn.net/20151121142035499)
+
+---
+**配置**：
+
++ /etc/gitconfig  所有用户普遍配置 ```git config --ststem```
++ ~/.gitconfig 用户配置 ```git confit --global```
++ 工作目录下 .git/config 对当前项目有效
+
+```
+	git config --global user.name
+    git config --global user.email
+```
+
+---
+#Git基础操作
+
+##创建项目
+工作目录初始化新仓库：
+
+`git init`
+
+跟踪文件：
+
+`git add newfile`
+
+提交：
+
+`git commit -m 'version x'`
+
+或者克隆自现有项目：
+
+`git clone [url]`
+
+_`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
+
+---
+##更新到仓库
+
+![file lifecycle](http://img.blog.csdn.net/20151121151700372)
+
+检查当前文件状态：
+
+`git status`
+
+跟踪新文件或暂存已修改文件：
+
+`git add filename`
+
+查看已修改文件与已暂存文件的差异：
+
+`git diff`
+
+查看已暂存文件与已提交文件的差异：
+
+`git diff --cached`
+
+提交更新:
+
+`git commit -m '提交说明'`
+
+跳过暂存提交更新：
+
+`git commit -a`
+
+移除文件：
+
+`git rm filename`
+
+移除跟踪但不删除文件：
+
+`git rm --cached filename`
+
+修改文件名：
+
+`git mv file_from file_to`
+
+---
+##查看提交历史
+
+`git log` 选项：
+
++ -p 展开显示每次提交内容差异
++ 2 显示最近两次更新
++ --stat 仅显示简要的增改行数统计
++ --pretty = 
++ --graph
++ ...
+
+图形化工具：gtik
+
+---
+##撤销操作
+
+重新提交：
+
+`git commit --amend`
+
+取消暂存：
+
+`git reset HEAD <file>`
+
+取消修改：
+
+`git checkout -- <file>`
+
+---
+##远程仓库
+
+查看当前远程仓库： 
+
+`git remote [-v]`
+
+添加：
+
+`git remote add [shortname] [url]`
+
+抓取数据：
+
+`git fetch [remote-name]`
+
+`git pull [remote-name] [branch-name]`
+
+推送：
+
+`git push origin master`
+
+查看远程仓库信息：
+
+`git remote show origin`
+
+远程仓库重命名：
+
+`git remote rename lastname newname`
+
+远程仓库删除：
+
+`git remote rm remotename`
+
+---
+##打标签
+
+两种标签：
+
++ 轻量级(lightweight)
++ 含附注的(annotated)
+
+列显已有标签：
+
+`git tag`
+
+含附注：
+
+`git tag -a v1.4 -m 'my version 1.4'`
+
+`git show v1.4`
+
+签署标签(GPG签名)：
+
+`git tag -s v1.5 -m 'my signed tg1.5'`
+
+轻量级：
+
+`git tag v1.4-lw`
+
+验证标签：
+
+`git tag -v [tag-name]`
+
+分享标签：
+
+`git push origin v1.5`
+`git push origin --tags`
+
+---
+##技巧
+
+__自动补全__：Git源代码中 contrib/completion/git-conpletion.bash文件复制到~/.git-completion.bash
+
+添加一行到 .bashrc ：
+
+`source ~/.git-completion.bash`
+
+---
+__Git命令别名__：
+
+`git config --global alias.co checkout`
+`git config --global alias.br branch`
+` .... `

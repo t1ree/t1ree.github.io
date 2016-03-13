@@ -7,16 +7,19 @@ categories: jekyll update
 # 版本控制？
 
 ---
+
 ## 发展历史
 
 ### 本地版本控制系统
 ![本地版本控制系统](http://img.blog.csdn.net/20151121140438165)
 
 ---------------
+
 ### 集中化的版本控制系统（CVCS）
 ![CVCS](http://img.blog.csdn.net/20151121140637846)
 
 ----
+
 ### 分布式版本控制系统（DVCS）
 ![DVCS](http://img.blog.csdn.net/20151121140806253)
 
@@ -42,11 +45,13 @@ categories: jekyll update
 参考自《Pro Git》
 
 ----
+
 Git使用SHA-1算法计算数据的校验和，通过对文件的内容或目录的结构计算出一个SHA-1哈希值，作为指纹字符串。
 
 ![指纹字符串](http://img.blog.csdn.net/20151121142010432)
 
 ----
+
 Git中文件有三种状态：
 
 + 已提交(committed)
@@ -56,6 +61,7 @@ Git中文件有三种状态：
 ![local operations](http://img.blog.csdn.net/20151121142035499)
 
 ---
+
 **配置**：
 
 + /etc/gitconfig  所有用户普遍配置 ```git config --ststem```
@@ -68,6 +74,7 @@ Git中文件有三种状态：
 ```
 
 ---
+
 # Git基础操作
 
 ## 创建项目
@@ -90,6 +97,7 @@ Git中文件有三种状态：
 _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 
 ---
+
 ## 更新到仓库
 
 ![file lifecycle](http://img.blog.csdn.net/20151121151700372)
@@ -131,6 +139,7 @@ _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 `git mv file_from file_to`
 
 ---
+
 ## 查看提交历史
 
 `git log` 选项：
@@ -145,6 +154,7 @@ _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 图形化工具：gtik
 
 ---
+
 ## 撤销操作
 
 重新提交：
@@ -160,6 +170,7 @@ _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 `git checkout -- <file>`
 
 ---
+
 ## 远程仓库
 
 查看当前远程仓库： 
@@ -193,6 +204,7 @@ _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 `git remote rm remotename`
 
 ---
+
 ## 打标签
 
 两种标签：
@@ -228,6 +240,7 @@ _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 `git push origin --tags`
 
 ---
+
 ## 技巧
 
 __自动补全__：Git源代码中 contrib/completion/git-conpletion.bash文件复制到~/.git-completion.bash
@@ -237,6 +250,7 @@ __自动补全__：Git源代码中 contrib/completion/git-conpletion.bash文件�
 `source ~/.git-completion.bash`
 
 ---
+
 __Git命令别名__：
 
 `git config --global alias.co checkout`

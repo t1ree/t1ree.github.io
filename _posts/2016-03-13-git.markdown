@@ -4,23 +4,23 @@ title:  "Git基础"
 categories: jekyll update
 ---
 
-#版本控制？
+# 版本控制？
 
 ---
-##发展历史
+## 发展历史
 
-###本地版本控制系统
+### 本地版本控制系统
 ![本地版本控制系统](http://img.blog.csdn.net/20151121140438165)
 
 ---------------
-###集中化的版本控制系统（CVCS）
+### 集中化的版本控制系统（CVCS）
 ![CVCS](http://img.blog.csdn.net/20151121140637846)
 
 ----
-###分布式版本控制系统（DVCS）
+### 分布式版本控制系统（DVCS）
 ![DVCS](http://img.blog.csdn.net/20151121140806253)
 
-#Git简史
+# Git简史
 
 > 同生活中的许多伟大事件一样，Git 诞生于一个极富纷争大举创新的年代。Linux 内核开源项目有着为数众广的参与者。绝大多数的 Linux
 > 内核维护工作都花在了提交补丁和保存归档的繁琐事务上（1991－2002年间）。到 2002 年，整个项目组开始启用分布式版本控制系统
@@ -68,9 +68,9 @@ Git中文件有三种状态：
 ```
 
 ---
-#Git基础操作
+# Git基础操作
 
-##创建项目
+## 创建项目
 工作目录初始化新仓库：
 
 `git init`
@@ -90,7 +90,7 @@ Git中文件有三种状态：
 _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 
 ---
-##更新到仓库
+## 更新到仓库
 
 ![file lifecycle](http://img.blog.csdn.net/20151121151700372)
 
@@ -131,7 +131,7 @@ _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 `git mv file_from file_to`
 
 ---
-##查看提交历史
+## 查看提交历史
 
 `git log` 选项：
 
@@ -145,7 +145,7 @@ _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 图形化工具：gtik
 
 ---
-##撤销操作
+## 撤销操作
 
 重新提交：
 
@@ -160,7 +160,7 @@ _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 `git checkout -- <file>`
 
 ---
-##远程仓库
+## 远程仓库
 
 查看当前远程仓库： 
 
@@ -193,7 +193,7 @@ _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 `git remote rm remotename`
 
 ---
-##打标签
+## 打标签
 
 两种标签：
 
@@ -228,7 +228,7 @@ _`git://`协议或`http(s)://`或`user@server://path.git`SSH传输协议_
 `git push origin --tags`
 
 ---
-##技巧
+## 技巧
 
 __自动补全__：Git源代码中 contrib/completion/git-conpletion.bash文件复制到~/.git-completion.bash
 

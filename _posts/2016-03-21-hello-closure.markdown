@@ -8,16 +8,16 @@ categories: jekyll update
 
 ## 1、什么是闭包
 最简单的闭包 demo code：
-```
-function A(){
-    function B(){
-    console.log("Hello Closure");
+
+    function A(){
+        function B(){
+        console.log("Hello Closure");
+        }
+        return B;
     }
-    return B;
-}
-var c = A();
-c(); //Hello Closure
-```
+    var c = A();
+    c(); //Hello Closure
+
 
 用一句话概括这段code：**函数A的内部函数B被函数A外的一个变量c引用**。
 再来看看闭包的定义：
@@ -36,23 +36,23 @@ c(); //Hello Closure
 
 这都是看别人写的，我不确定他玩的这个是什么分段，至少黄金以上。
 code：
-```
-(function(document){
-    var viewport;
-    var obj = {
-        init: function(id){
-            viewport = document.querySelector("#"+id);
-        },
-        addChild: function(child){
-            viewport.appendChild(child);
-        },
-        removeChild: function(child){
-            viewport.removeChild(child);
+
+    (function(document){
+        var viewport;
+        var obj = {
+            init: function(id){
+                viewport = document.querySelector("#"+id);
+            },
+            addChild: function(child){
+                viewport.appendChild(child);
+            },
+            removeChild: function(child){
+                viewport.removeChild(child);
+            }
         }
-    }
-    window.jView = obj; //很关键
-})(document);
-```
+        window.jView = obj; //很关键
+    })(document);
+
 首先这是一个立即执行函数，分成两部分看：
 `(function(){ })` 和 `( )`
 第一个`( )`是一个表达式，这个表达式本身是一个匿名函数。

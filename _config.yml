@@ -19,3 +19,7 @@ github_username:  t1ree
 
 # Build settings
 markdown: kramdown
+
+pygments: true
+safe: true
+auto: true

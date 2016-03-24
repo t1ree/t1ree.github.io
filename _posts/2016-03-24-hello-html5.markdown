@@ -1,0 +1,116 @@
+---
+layout: post
+title: "813---快上车，HTML5末班"
+categories: jekyll update
+---
+上车了就系好安全带，因为这是一名年轻司机的车。
+
+# HTML 5
+
+先不说HTML5，你肯定想问：813是什么？
+813是我在家常坐的一路公交，从小坐到大，感情实在深厚。直到今天，我都清楚的记得，车票是一元。那么我们就从我家楼下这一站坐起---亲贤街长治路口，开始HTML5的公交之旅。到了终点站还没学会怎么办？ 很简单，坐着别下去呗，返程一样精彩。
+
+ HTML5出来好多年了，发展实在迅猛，我们正处在HTML5的时代，而且下个高潮也许将由它来掀起，就在眼前。这真的是一辆末班车。
+
+HTML5有两个目标：
+
+*	书写更简单的代码。
+*	以更简单的方式创建Web程序。
+
+要解决三个问题：
+
+1.	浏览器兼容性
+2.	文档结构
+3.	Web应用
+
+来看一个新的页面结构：
+
+	<header></header>
+	<nav></nav>
+	<article>
+	<section></section>
+	</article>
+	<aside></aside>
+	<footer>
+
+可以吧，很清晰。
+
+以下是第一站的总结。
+
+
+----------
+
+
+## 1、DOCTYPE
+`<!DOCTYPE html>`
+html5的文档类型声明就是这么简单，以前的那些再也不用看了，因为它是可以向前兼容的。
+
+## 2、字符编码
+`<meta charset="UTF-8">`
+也很简单。
+
+## 3、可省略标记
+规定了几个可以省略全部标记的元素，比如html、head、body、tbody。即使省略了，依然会以隐式方式存在，可使用DOM访问。
+
+## 4、具有Boolean属性的值
+只写属性不写属性值（包括空字符串）+属性值=属性名 --> true
+
+不写属性 --> false
+
+## 5、新增的结构元素
+`<section>`页面中的一个内容区块。
+`<article>`一块与上下文不相关的独立内容。
+`<aside>`article元素之外的、与其内容相关的辅助信息。
+`<header>`
+`<hgroup>`对整个页面或页面中一个区块的标题进行组合。
+`<footer>`
+`<nav>`
+`<figure>`表示一段独立的流内容。（`<figcaption>`可添加标题）
+
+## 6、其它元素
+
+video、 audio、embed （各种多媒体）、mark
+progress 表示运行中的程序。这个还挺有意思，看看效果
+
+`<progress></progress>`
+<progress></progress>
+
+<br>
+meter、time、ruby（ruby注释）
+rt 字符的解释或发音，这个也有意思
+
+`<ruby>汉<rt>han</rt></ruby>`
+<ruby>冰<rt>bing</rt></ruby>
+
+wbr软换行、details.....
+
+## 7、新增的input元素类型 
+email
+
+url
+
+number
+
+range
+
+Date Pickers
+
+## 8、废除的元素
+废除了哪些元素呢？主要是这几类
+
+*	能使用css替代的元素
+*	不再使用frame框架，可支持iframe框架
+*	只有部分浏览器支持的元素
+*	其他比如 rb acronym dir isindex等。
+
+## 9、新加的属性
+新加的属性也不少，以后用到再说吧。
+这里说一下新加的**全局属性**。全局属性就是可以对任何元素使用的属性。
+
+*	contentEditable 允许用户编辑元素中的内容。true/false
+*	designMode 整个页面是否可编辑 on/off
+		只能在JavaScript脚本里修改
+		`document.designMode = "on"`
+*	hidden true/false
+*	spellcheck 必须声明值 true/false 对用户输入的文本内容进行拼写和语法检查
+*	tabindex 值为 "-1" 则不再可以按下tab获得焦点

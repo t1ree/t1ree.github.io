@@ -1,0 +1,118 @@
+---
+layout: post
+title: "Draw a picture"
+categories: jekyll update
+---
+
+# 来画画吧 BY HTML5 <canvas>
+
+好困呀，来写篇博客吧。决定以后经常写短篇，有时间的时候再将其整理。
+
+今天就来画个画吧，一幅**渐变**的彩图，没错，拥有神奇的渐变效果。主要的工具就是HTML5的canvas API了，canvas的意思就是画布，在网页上本是一片无色透明的区域。
+
+> Nothing means everything.
+
+像下面这样，我们定义了一张画布，Size: 400*300。
+	
+`<canvas id="canvas" width="400" height="300"></canvas>`
+
+那这块布是铺上了，现在我们要取得控制权，To Be A Painter!（写入js文件）
+
+	var canvas = document.getElementById(id);
+	if (canvas == null) {
+		return false;
+	}
+	var context = canvas.getContext('2d');
+
+Nice! 现在就可以拿起画笔尽情挥洒了。我们有铅笔，可以画出图形来：
+
+`context.stroke();`
+
+我们还有颜料，给图形填充上颜色：
+
+`context.fill();`
+
+我们还可以给我们的铅笔和颜料设定STYLE！比如这样：
+
+`context.fillStyle = '江南Style';`
+
+在canvas里画画有一些特别，首先你要拿**透明**的笔画出图形来，然后你可以用铅笔给他描出来，或者直接把颜料挥洒上去，其实也就这两个步骤哦。
+
+明白了这些就要说到画渐变效果非常重要的东西-------**LinearGradient**对象。
+什么是LinearGradient对象，我也不知道啊，就是画线性渐变用的，人家给你准备好了用就行了。
+
+现在开始用它。首先创建这个对象：
+
+`g1 = context.createLinearGradient(xStart, yStart, xEnd, yEnd);`
+
+然后进行颜色设定：
+
+`g1.addColorStop(offset, color);`
+
+offset就是偏移量，范围0-1，你指定这其中一个点，说说想让它是什么颜色。
+
+最后填充：
+
+	context.fillStyle = g1;
+	context.fill();
+
+是不是很简单。下面是完整的绘画过程，欣赏一下你的大作吧。
+
+	<script>
+		function draw(id) {
+			//get canvas context
+			var canvas = document.getElementById(id);
+			if (canvas == null) {
+				return false;
+			}
+			var context = canvas.getContext('2d');
+			//begin to draw
+			var g1 = context.createLinearGradient(0, 0, 0, 300);
+			g1.addColorStop(0, 'rgb(255, 255, 0)');
+			g1.addColorStop(1, 'rgb(0, 255, 255)');
+			context.fillStyle = g1;
+			context.fillRect(0, 0, 400, 300);
+			var n = 0;
+			var g2 = context.createLinearGradient(0, 0, 300, 0);
+			g2.addColorStop(0, 'rgba(0, 0, 255, 0.5)');
+			g2.addColorStop(1, 'rgba(255, 0, 0, 0.5)');
+			for (var i=0; i<10; i++) {
+				context.beginPath();
+				context.fillStyle = g2;
+				context.arc(i*25, i*25, i*10, 0, Math.PI*2, true);
+				context.closePath();
+				context.fill();
+			}
+		}
+	</script>
+
+## canvas sample  
+<canvas id="canvas" width="400" height="300"></canvas>
+
+<script type="text/javascript">
+	window.onload = function draw(id) {
+			//get canvas context
+			var canvas = document.getElementById(id);
+			if (canvas == null) {
+				return false;
+			}
+			var context = canvas.getContext('2d');
+			//begin to draw
+			var g1 = context.createLinearGradient(0, 0, 0, 300);
+			g1.addColorStop(0, 'rgb(255, 255, 0)');
+			g1.addColorStop(1, 'rgb(0, 255, 255)');
+			context.fillStyle = g1;
+			context.fillRect(0, 0, 400, 300);
+			var n = 0;
+			var g2 = context.createLinearGradient(0, 0, 300, 0);
+			g2.addColorStop(0, 'rgba(0, 0, 255, 0.5)');
+			g2.addColorStop(1, 'rgba(255, 0, 0, 0.5)');
+			for (var i=0; i<10; i++) {
+				context.beginPath();
+				context.fillStyle = g2;
+				context.arc(i*25, i*25, i*10, 0, Math.PI*2, true);
+				context.closePath();
+				context.fill();
+			}
+		}
+</script>

@@ -43,7 +43,7 @@ Nice! 现在就可以拿起画笔尽情挥洒了。我们有铅笔，可以画�
 
 现在开始用它。首先创建这个对象：
 
-`g1 = context.createLinearGradient(xStart, yStart, xEnd, yEnd);`
+`g1 = context.createLinearGradient(xStart, xEnd, yStart, yEnd);`
 
 然后进行颜色设定：
 

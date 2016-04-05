@@ -90,7 +90,7 @@ offset就是偏移量，范围0-1，你指定这其中一个点，说说想让�
 <canvas id="canvas" width="400" height="300"></canvas>
 
 <script type="text/javascript">
-	window.onload = function draw(id) {
+	window.onload = function draw('canvas') {
 			//get canvas context
 			var canvas = document.getElementById(id);
 			if (canvas == null) {

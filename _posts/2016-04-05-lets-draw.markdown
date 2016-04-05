@@ -4,7 +4,7 @@ title: "Draw a picture"
 categories: jekyll update
 ---
 
-# 来画画吧 BY HTML5 <canvas>
+# 来画画吧 BY HTML5 `<canvas>`
 
 好困呀，来写篇博客吧。决定以后经常写短篇，有时间的时候再将其整理。
 
@@ -90,9 +90,9 @@ offset就是偏移量，范围0-1，你指定这其中一个点，说说想让�
 <canvas id="canvas" width="400" height="300"></canvas>
 
 <script type="text/javascript">
-	window.onload = function draw('canvas') {
+	window.onload = function draw() {
 			//get canvas context
-			var canvas = document.getElementById(id);
+			var canvas = document.getElementById('canvas');
 			if (canvas == null) {
 				return false;
 			}

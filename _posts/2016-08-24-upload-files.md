@@ -8,7 +8,7 @@ categories: AJAX
 
 参考：
 
-> [在web应用中使用文件|MDN](https://developer.mozilla.org/zh-CN/docs/Using_files_from_web_applications)
+> [在web应用中使用文件 MDN](https://developer.mozilla.org/zh-CN/docs/Using_files_from_web_applications)
 
 
 
